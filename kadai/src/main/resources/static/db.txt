@@ -1,0 +1,18 @@
+create user team5 IDENTIFIED by shirouzu2002;
+
+grant connect to team5;
+
+
+drop table items;
+
+create table items(
+id INTEGER primary key,
+filename varchar2(20) unique);
+
+
+
+insert into items(id,filename) values (1,'1.png');
+insert into items(id,filename) values (2,'2.png');
+insert into items(id,filename) values (3,'3.png');
+
+commit;

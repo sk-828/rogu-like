@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.ofg">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+	<title>Insert title here</title>
+</head>
+
+<body>
+
+	<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+		<div class="navbar-brand">
+			<a class="navbar-item " href="/index">
+				<strong><span class="is-size-3">ヒット＆ブロー　～白って200色あんねん～</span></strong>
+
+			</a>
+
+		</div>
+
+		<div id="navbarBasicExample" class="navbar-menu">
+			<div class="navbar-start">
+
+
+
+			</div>
+
+			<div class="navbar-end">
+				<a class="navbar-item">
+					スコア:<th:block th:text="${list.score}"></th:block>
+				</a>
+
+				<a class="navbar-item" href="/index">
+					Home
+				</a>
+				<a class="navbar-item" href="/game">
+					Game
+				</a>
+				<a class="navbar-item" href="/gacha">
+					Gacha
+				</a>
+
+				<a class="navbar-item" href="/items">
+					Items
+				</a>
+			</div>
+		</div>
+	</nav>
+
+
+
+	<div class="content">
+		<div class="block">
+			<h2>
+				まずはヒット＆ブローを遊んでスコアを貯めよう！
+			</h2>
+		</div>
+
+		<div class="block">
+
+			<div class="field is-grouped level">
+				<div class="level-item">
+					<span class="btn-box-span">
+						<form th:action="@{/game}">
+							<input class="button is-primary is-outlined" type="submit" value="ヒット＆ブロー(Numer0n)">
+
+						</form>
+					</span>
+
+
+					<span class="btn-box-span">
+						<form th:action="@{/gameAn}">
+							<input class="button is-primary is-outlined" type="submit" value="アンミカモード">
+
+						</form>
+					</span>
+
+					<span class="btn-box-span">
+						<form th:action="@{/gacha}">
+							<input class="button is-primary is-outlined" type="submit" value="ガチャ">
+						</form>
+					</span>
+
+					<span class="btn-box-span">
+						<form th:action="@{/items}">
+							<input class="button is-primary is-outlined" type="submit" value="アイテム一覧">
+						</form>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

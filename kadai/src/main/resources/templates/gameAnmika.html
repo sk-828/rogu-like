@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.ofg">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+	<title>Insert title here</title>
+</head>
+
+<body>
+
+	<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+		<div class="navbar-brand">
+			<a class="navbar-item " href="/index">
+				<strong><span class="is-size-3">ヒット＆ブロー　～白って200色あんねん～</span></strong>
+
+			</a>
+
+		</div>
+
+		<div id="navbarBasicExample" class="navbar-menu">
+			<div class="navbar-start">
+
+
+
+			</div>
+
+			<div class="navbar-end">
+				<a class="navbar-item">
+					スコア:<th:block th:text="${list.score}"></th:block>
+				</a>
+
+				<a class="navbar-item" href="/index">
+					Home
+				</a>
+				<a class="navbar-item" href="/game">
+					Game
+				</a>
+				<a class="navbar-item" href="/gacha">
+					Gacha
+				</a>
+
+				<a class="navbar-item" href="/items">
+					Items
+				</a>
+			</div>
+		</div>
+	</nav>
+	<div class="content">
+		<h1 class="game">
+			ヒット＆ブロー！　アンミカモード
+		</h1>
+		<p>白って200色あんねん。</p>
+
+		<table class="gametable">
+
+			<tr class="gametr">
+				<td></td>
+				<form method="post" action="/gameSendAn" th:object="${balls}">
+					<td class="gametd">
+
+						<select name="ball1" class="balls" th:field="*{ball1}">
+							<th:block th:each="data, i: ${#numbers.sequence(1,6)}">
+								<option th:class="${list.colorsAnmika[data]}" th:value="${i.count}">
+									<th:block th:text="${i.count}"></th:block>
+								</option>
+							</th:block>
+						</select>
+					</td>
+					<td class="gametd">
+						<select name="ball2" class="balls" th:field="*{ball2}">
+							<th:block th:each="data, i: ${#numbers.sequence(1,6)}">
+								<option th:class="${list.colorsAnmika[data]}" th:value="${i.count}">
+									<th:block th:text="${i.count}"></th:block>
+								</option>
+							</th:block>
+						</select>
+					</td>
+					<td class="gametd">
+						<select name="ball3" class="balls" th:field="*{ball3}">
+							<th:block th:each="data, i: ${#numbers.sequence(1,6)}">
+								<option th:class="${list.colorsAnmika[data]}" th:value="${i.count}">
+									<th:block th:text="${i.count}"></th:block>
+								</option>
+							</th:block>
+						</select>
+					</td>
+					<td class="gametd">
+						<select name="ball4" class="balls" th:field="*{ball4}">
+							<th:block th:each="data, i: ${#numbers.sequence(1,6)}">
+								<option th:class="${list.colorsAnmika[data]}" th:value="${i.count}">
+									<th:block th:text="${i.count}"></th:block>
+								</option>
+							</th:block>
+						</select>
+						<br />
+
+
+					</td>
+					<input class="button is-primary" type="submit">
+				</form>
+
+			</tr>
+
+			<tr class="gametr">
+				<th class="gameth"></th>
+				<th class="gameth">ball1 </th>
+				<th class="gameth">ball2 </th>
+				<th class="gameth">ball3 </th>
+				<th class="gameth">ball4 </th>
+				<th class="gameth">ヒット </th>
+				<th class="gameth">ブロー </th>
+			</tr>
+			<th:block th:each="data,i:${list.balls}">
+				<tr class="gametr">
+					<td class="gametd" th:text="${i.count}+回目"></td>
+					<th:block th:each="data2,j:${data.balls}">
+
+						<td class="gametd">
+
+							<span th:if="${j.count<5}" th:class="${list.colorsAnmika[data2]}">
+								<span class="balls">
+									●
+								</span>
+							</span>
+							<span th:unless="${j.count<5}" th:text="${data2}">
+							</span>
+						</td>
+					</th:block>
+				</tr>
+				<tr>
+			</th:block>
+			<td class="gametd" th:text="正解のボール"></td>
+			<th:block th:each="data2,j:${list.answer}">
+
+				<td class="gametd">
+					<span th:if="${list.count>=1 && list.balls[list.count-1].balls[4] >= 4  }"
+						th:class="${list.colorsAnmika[data2]}">
+						<span class="balls">
+							●
+						</span>
+					</span>
+					<span th:unless="${list.count>=1 && list.balls[list.count-1].balls[4] >= 4  }">
+						<span class="balls">
+							?
+						</span>
+					</span>
+				</td>
+			</th:block>
+		</table>
+		<form method="post" action="/gameStartAn">
+
+
+			<input class="button is-primary" type="submit" value="リセット">
+		</form>
+	</div>
+
+</body>
+
+</html>

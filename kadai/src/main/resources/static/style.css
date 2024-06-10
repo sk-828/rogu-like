@@ -1,0 +1,160 @@
+@charset "UTF-8";
+
+.btn-square-shadow-min {
+	display: inline-block;
+	padding: 0.5em 1em;
+	text-decoration: none;
+	background: #668ad8;
+	/*ボタン色*/
+	color: #FFF;
+	border-bottom: solid 4px #627295;
+	border-radius: 3px;
+
+	width: 140px;
+	height: 50px;
+	text-align: center;
+	/*コレ*/
+	line-height: 1;
+
+
+}
+
+.btn-square-shadow {
+	display: inline-block;
+	padding: 0.5em 1em;
+	text-decoration: none;
+	background: #668ad8;
+	/*ボタン色*/
+	color: #FFF;
+	border-bottom: solid 4px #627295;
+	border-radius: 3px;
+
+	width: 200px;
+	height: 100px;
+	text-align: center;
+	/*コレ*/
+	line-height: 6;
+
+
+}
+
+.btn-square-shadow:active {
+	/*ボタンを押したとき*/
+	-webkit-transform: translateY(4px);
+	transform: translateY(4px);
+	/*下に動く*/
+	box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+	/*影を小さく*/
+	border-bottom: none;
+}
+
+header {
+	display: flex;
+	width: 100%;
+	height: 100px;
+	background-color: darkgrey;
+	align-items: center;
+	position: fixed;
+}
+
+.content {
+	padding: 100px 0px;
+	text-align: center;
+}
+
+.title {
+	margin-right: auto;
+}
+
+.menu-item {
+	list-style: none;
+	display: inline-block;
+	padding: 10px;
+}
+
+table {
+	margin: auto
+}
+
+
+.gametable {
+	border: 1px solid;
+	-ms-writing-mode: tb-lr;
+	writing-mode: vertical-lr;
+	margin: auto
+}
+
+.gameth {
+	border: 1px solid;
+	background-color: #FF9900;
+	-ms-writing-mode: lr-tb;
+	writing-mode: horizontal-tb;
+	padding: 10px;
+}
+
+.gametd {
+	border: 1px solid;
+	-ms-writing-mode: lr-tb;
+	writing-mode: horizontal-tb;
+	padding: 10px;
+}
+
+h1.game {
+	font-size: 20pt;
+}
+
+.balls {
+	font-size: 25pt;
+}
+
+.itemlist {
+	text-align: center;
+}
+
+.ball0000ff {
+	color: #0000FF;
+}
+
+.ball1e90ff {
+	color: #00FFFF;
+}
+
+.ball6495ed {
+	color: green;
+}
+
+.ball00bfff {
+	color: red;
+}
+
+.ballee82ee {
+	color: #ee82ee;
+}
+
+.ballf8f8ff {
+	color: #d0d0d0;
+}
+
+.ballffffff {
+	color: #ffffff;
+}
+
+.balleffbfb {
+	color: #effbfb;
+}
+
+.balleffbf8 {
+	color: #effbf8;
+}
+
+.balleffbf2 {
+	color: #effbf2;
+}
+
+.ballf5fbef {
+	color: #f5fbef;
+}
+
+.ballfbefef {
+	color: #fbefef;
+}
